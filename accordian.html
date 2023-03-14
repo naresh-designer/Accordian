@@ -33,6 +33,26 @@
             color: #000;
             padding: 5px 10px;
          }
+         .contentBx.active{
+            position: relative;
+         }
+         .contentBx.active::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            border-top: 3px solid white;
+            animation: borderline 1s linear forwards;
+         }
+         @keyframes borderline{
+            0%{
+                width:0;
+            }
+            100%{
+                width:100%;
+            }
+         }
         .contentBx.active .lable{
             background-color: 000;
             color:aqua;
@@ -46,6 +66,7 @@
          }
          .contentBx.active .content{
             display: block;
+            transform: translateX(0);
          }
     </style>
 </head>
