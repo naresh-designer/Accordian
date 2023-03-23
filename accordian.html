@@ -49,6 +49,10 @@
             0%{
                 width:0;
             }
+            50%{
+                width:30%;
+                background-color: red;
+            }
             100%{
                 width:100%;
             }
@@ -59,14 +63,14 @@
             padding: 5px 10px;
          }
          .contentBx .content{
-            padding: 5px 10px;
             background-color: #fff;
             color: aqua;
-            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s all ease-in;
          }
          .contentBx.active .content{
-            display: block;
-            transform: translateX(0);
+            max-height: 100;
          }
     </style>
 </head>
@@ -75,7 +79,12 @@
     <div class="contentBx">
         <div class="lable">List One</div>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore accusantium possimus magnam temporibus. Autem voluptates aut officia debitis, molestias ipsa, beatae odit neque similique fuga saepe? Sit cumque voluptate magni.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore accusantium
+                possimus magnam temporibus. Autem voluptates aut officia debitis, 
+                molestias ipsa, beatae odit neque similique fuga saepe? Sit cumque voluptate magni.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore accusantium
+                    possimus magnam temporibus. Autem voluptates aut officia debitis, 
+                    molestias ipsa, beatae odit neque similique fuga saepe? Sit cumque voluptate magni.</p>
         </div>
     </div>
     <div class="contentBx">
@@ -97,6 +106,12 @@
     for(i = 0; i < accordian.length; i++){
         accordian[i].addEventListener('click', function(){
             this.classList.toggle('active');
+            var panel = this.nextElementSibling;
+            if(panel.style.maxHeight){
+                panel.style.maxHeight = null;
+            }else{
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
         })
     }
 </script>

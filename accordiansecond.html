@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+        body{
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           background-color: #27282c;
+           font-family: 'Poppins', sans-serif;
+           color: #fff;
+           letter-spacing: 4px;
+       }
+       .container{
+        width: 40%;
+       }
+       .container h2{
+        color: hotpink;
+       }
+       .accordian{
+        width: 100%;
+        padding:0 15px;
+        border: 1px solid cyan;
+        border-radius:100px;
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        cursor: pointer;
+       }
+       .accordian .icon{
+        margin: 0 10px 0 0;
+        width: 30px;
+        height: 30px;
+        background-color: cyan;
+        border-radius: 100%;
+        transition: all .5s;
+       }
+       .accordian.active .icon{
+        background-color: blue;
+        border-radius: 0 !important;
+        width: 30px;
+        height: 2px;
+       }
+       .accordian h5{
+        margin: 0px;
+        font-size: 15px;
+        padding: 20px 0;
+       }
+       .panel{
+        padding: 0 15px;
+        border-left: 1px solid cyan;
+        margin-left: 25px;
+        font-size: 14px;
+        text-align: justify;
+        overflow: hidden;
+        max-height: 0;
+        transition: all .5s ease-in;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Frequently Asked Question (FAQs)</h2>
+        <div class="accordian">
+            <div class="icon"></div>
+            <h5>First Tab</h5>
+        </div>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ad dignissimos nam fugiat ducimus alias perspiciatis id a exercitationem! Magnam inventore excepturi porro eaque repellat delectus iste velit! Non, cupiditate!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ad dignissimos nam fugiat ducimus alias perspiciatis id a exercitationem! Magnam inventore excepturi porro eaque repellat delectus iste velit! Non, cupiditate!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ad dignissimos nam fugiat ducimus alias perspiciatis id a exercitationem! Magnam inventore excepturi porro eaque repellat delectus iste velit! Non, cupiditate!</p>
+        </div>
+        <div class="accordian">
+            <div class="icon"></div>
+            <h5>Second Tab</h5>
+        </div>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ad dignissimos nam fugiat ducimus alias perspiciatis id a exercitationem! Magnam inventore excepturi porro eaque repellat delectus iste velit! Non, cupiditate!</p>
+        </div>
+        <div class="accordian">
+            <div class="icon"></div>
+            <h5>Third Tab</h5>
+        </div>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ad dignissimos nam fugiat ducimus alias perspiciatis id a exercitationem! Magnam inventore excepturi porro eaque repellat delectus iste velit! Non, cupiditate!</p>
+        </div>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName('accordian');
+        var len = acc.length;
+        for(i = 0; i < len; i++){
+            acc[i].addEventListener('click', function() {
+                this.classList.toggle('active');
+                var panel = this.nextElementSibling;
+                if(panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                }else{
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
+                }
+            })
+        }
+    </script>
+</body>
+</html>
